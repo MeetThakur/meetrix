@@ -10,6 +10,16 @@
   --nav-height: 80px;
 }
 
+[data-theme='light'] {
+  --bg-color: #ffffff; /* Pure White */
+  --text-color: #121212; /* Pitch Black */
+  --primary-color: #000000; /* Black accent */
+  --secondary-color: #525252; /* Dark Grey */
+  --accent-color: #e5e5e5; /* Light Grey accent */
+  --glass-bg: rgba(0, 0, 0, 0.03); /* Dark glass for light mode */
+  --glass-border: rgba(0, 0, 0, 0.08);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -37,6 +47,11 @@ body::before {
   z-index: 9999;
   opacity: 0.05;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+[data-theme='light'] body::before {
+  opacity: 0.03; /* Slightly subtler on white */
+  filter: invert(1); /* Invert noise for light background */
 }
 
 a {

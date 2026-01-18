@@ -23,6 +23,12 @@
   box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Deep shadow for float effect */
 }
 
+[data-theme='light'] .navbar {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Lighter shadow */
+}
+
 /* Nav container adjustment */
 .nav-container {
   display: flex;
@@ -82,6 +88,23 @@
   font-size: 1.8rem;
   cursor: pointer;
   color: var(--text-color);
+}
+
+.theme-toggle-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--secondary-color);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+  padding: 8px;
+}
+
+.theme-toggle-btn:hover {
+  color: var(--primary-color);
 }
 
 @media screen and (max-width: 768px) {

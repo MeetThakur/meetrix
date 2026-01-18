@@ -81,6 +81,10 @@
   text-orientation: mixed;
 }
 
+[data-theme='light'] .watermark {
+  color: rgba(0, 0, 0, 0.02);
+}
+
 .geometric-shape {
   position: absolute;
   top: 20%;
@@ -93,6 +97,10 @@
   animation: rotateShape 20s infinite linear;
 }
 
+[data-theme='light'] .geometric-shape {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
 .geometric-shape::before {
   content: '';
   position: absolute;
@@ -103,6 +111,10 @@
   height: 70%;
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; /* Abstract blob */
+}
+
+[data-theme='light'] .geometric-shape::before {
+  border-color: rgba(0, 0, 0, 0.05);
 }
 
 @keyframes rotateShape {

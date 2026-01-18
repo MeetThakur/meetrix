@@ -6,7 +6,6 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import CompetitiveProgramming from "./components/CompetitiveProgramming";
 import Contact from "./components/Contact";
-import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -18,7 +17,6 @@ function App() {
       <Projects />
       <CompetitiveProgramming />
       <Contact />
-      <Footer />
     </div>
   );
 }

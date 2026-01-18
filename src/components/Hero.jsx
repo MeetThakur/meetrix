@@ -35,7 +35,7 @@ const Hero = () => {
           <span>I am a </span>
           <span className="typewriter">
             <Typewriter
-              words={['Web Developer', 'Competitive Programmer', 'Tech Enthusiast']}
+              words={['Developer', 'Programmer', 'Tech Enthusiast']}
               loop={0}
               cursor
               cursorStyle='|'

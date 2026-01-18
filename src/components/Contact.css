@@ -1,89 +1,137 @@
-.contact-container {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 3rem;
-  width: 100%;
-}
-
-.contact-info {
-  padding: 2.5rem;
+.contact {
+  position: relative;
+  min-height: 90vh;
+  padding: 100px 5%;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 
-.contact-info h3 {
-  font-size: 1.8rem;
+.contact-content {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.contact-header {
+  margin-bottom: 5rem;
+}
+
+.contact-header h2 {
+  font-size: 4rem;
   margin-bottom: 1rem;
-  color: var(--primary-color);
 }
 
-.contact-info p {
-  color: #94a3b8;
-  margin-bottom: 2rem;
-}
-
-.info-item {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-  font-size: 1.1rem;
-}
-
-.info-item .icon {
-  color: var(--secondary-color);
+.contact-header p {
   font-size: 1.2rem;
+  color: var(--secondary-color);
 }
 
-.contact-form {
-  padding: 2.5rem;
+.contact-split {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 5rem;
 }
 
-.form-group {
-  margin-bottom: 1.5rem;
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
 
-.form-group label {
+.detail-label {
   display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--secondary-color);
+  letter-spacing: 0.1em;
   margin-bottom: 0.5rem;
+}
+
+.detail-value {
+  font-size: 1.5rem;
   color: var(--text-color);
+  text-decoration: none;
   font-weight: 500;
 }
 
-.form-group input,
-.form-group textarea {
+.social-row {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-row a {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.social-row a:hover {
+  border-color: var(--text-color);
+}
+
+/* Minimal Form */
+.minimal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.minimal-form .form-group input,
+.minimal-form .form-group textarea {
   width: 100%;
-  padding: 12px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--glass-border);
-  border-radius: 8px;
-  color: #fff;
-  font-family: inherit;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--glass-border);
+  padding: 1rem 0;
+  font-size: 1.5rem;
+  color: var(--text-color);
+  font-family: var(--font-main);
   outline: none;
-  border-color: var(--primary-color);
-  background: rgba(255, 255, 255, 0.1);
+  transition: border-color 0.3s;
+  resize: none;
 }
 
-/* Footer styles here as well for simplicity or separate */
-.footer {
-  text-align: center;
-  padding: 2rem;
-  background: #050508;
-  color: #64748b;
-  font-size: 0.9rem;
-  margin-top: 2rem;
+.minimal-form .form-group input:focus,
+.minimal-form .form-group textarea:focus {
+  border-color: var(--text-color);
+}
+
+.minimal-form .form-group input::placeholder,
+.minimal-form .form-group textarea::placeholder {
+  color: var(--secondary-color);
+  opacity: 0.5;
+}
+
+.submit-btn {
+  align-self: flex-start;
+  padding: 1rem 3rem;
+  background: var(--text-color);
+  color: var(--bg-color);
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.submit-btn:hover {
+  transform: scale(1.05);
+}
+
+[data-theme='light'] .minimal-form .form-group input {
+  border-color: rgba(0,0,0,0.1);
 }
 
 @media screen and (max-width: 768px) {
-  .contact-container {
+  .contact-split {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 4rem;
+  }
+  
+  .contact-header h2 {
+    font-size: 3rem;
   }
 }

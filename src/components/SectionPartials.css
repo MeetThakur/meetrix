@@ -17,6 +17,10 @@
   line-height: 1;
 }
 
+[data-theme='light'] .section-index {
+  color: rgba(0, 0, 0, 0.03);
+}
+
 .section-watermark {
   position: absolute;
   top: 15rem;
@@ -26,6 +30,10 @@
   white-space: nowrap;
   writing-mode: vertical-rl;
   text-orientation: mixed;
+}
+
+[data-theme='light'] .section-watermark {
+  color: rgba(0, 0, 0, 0.02);
 }
 
 /* Alignments */

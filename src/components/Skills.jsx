@@ -6,22 +6,51 @@ import SectionPartials from './SectionPartials';
 import './Skills.css';
 
 const Skills = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 }
-    }
-  };
+  const skillsRow1 = [
+    { name: 'React', icon: <FaReact /> },
+    { name: 'Node.js', icon: <FaNodeJs /> },
+    { name: 'TypeScript', icon: <SiTypescript /> },
+    { name: 'Python', icon: <FaPython /> },
+    { name: 'HTML5', icon: <FaHtml5 /> },
+    { name: 'CSS3', icon: <FaCss3Alt /> },
+    { name: 'Java', icon: <FaJava /> },
+  ];
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
-  };
+  const skillsRow2 = [
+    { name: 'Tailwind', icon: <SiTailwindcss /> },
+    { name: 'Framer', icon: <SiFramer /> },
+    { name: 'JavaScript', icon: <FaJs /> },
+    { name: 'C++', icon: <SiCplusplus /> },
+    { name: 'SQL', icon: <FaDatabase /> },
+    { name: 'Git', icon: null },
+    { name: 'VS Code', icon: null },
+  ];
+
+  // Duplicate arrays for seamless loop
+  const MarqueeRow = ({ items, direction = "left" }) => (
+    <div className={`marquee-row ${direction}`}>
+      <div className="marquee-content">
+        {items.map((skill, index) => (
+          <div key={index} className="skill-pill">
+            {skill.icon && <span className="skill-icon">{skill.icon}</span>}
+            <span className="skill-name">{skill.name}</span>
+          </div>
+        ))}
+        {/* Duplicate for infinite effect */}
+        {items.map((skill, index) => (
+          <div key={`dup-${index}`} className="skill-pill">
+            {skill.icon && <span className="skill-icon">{skill.icon}</span>}
+            <span className="skill-name">{skill.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 
   return (
-    <section className="skills" id="skills">
+    <section className="skills-section" id="skills">
       <SectionPartials index="02" title="STACK" align="right" />
+      
       <motion.div 
         className="section-header"
         initial={{ opacity: 0, y: 20 }}
@@ -31,48 +60,10 @@ const Skills = () => {
         <h2>Technical Arsenal</h2>
       </motion.div>
 
-      <motion.div 
-        className="bento-grid"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        {/* Frontend Box */}
-        <motion.div className="bento-box frontend-box" variants={itemVariants}>
-          <h3>Frontend</h3>
-          <div className="box-content">
-            <div className="pill"><FaReact /> React</div>
-            <div className="pill"><FaJs /> JavaScript</div>
-            <div className="pill"><SiTypescript /> TypeScript</div>
-            <div className="pill"><FaHtml5 /> HTML5</div>
-            <div className="pill"><FaCss3Alt /> CSS3</div>
-            <div className="pill"><SiTailwindcss /> Tailwind</div>
-            <div className="pill"><SiFramer /> Framer</div>
-          </div>
-        </motion.div>
-
-        {/* Backend Box */}
-        <motion.div className="bento-box backend-box" variants={itemVariants}>
-          <h3>Backend</h3>
-          <div className="box-content">
-             <div className="pill"><FaNodeJs /> Node.js</div>
-             <div className="pill"><FaPython /> Python</div>
-             <div className="pill"><FaJava /> Java</div>
-             <div className="pill"><FaDatabase /> SQL</div>
-          </div>
-        </motion.div>
-
-        {/* Tools/Languages Box */}
-        <motion.div className="bento-box tools-box" variants={itemVariants}>
-          <h3>Core & Tools</h3>
-          <div className="box-content">
-            <div className="pill"><SiCplusplus /> C++</div>
-            <div className="pill">Git & GitHub</div>
-            <div className="pill">VS Code</div>
-          </div>
-        </motion.div>
-      </motion.div>
+      <div className="marquee-container">
+        <MarqueeRow items={skillsRow1} direction="left" />
+        <MarqueeRow items={skillsRow2} direction="right" />
+      </div>
     </section>
   );
 };
