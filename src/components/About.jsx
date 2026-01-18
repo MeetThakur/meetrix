@@ -35,29 +35,17 @@ const About = () => {
             When I'm not coding, you can find me competing on coding platforms, exploring the latest tech trends, or gaming.
           </p>
           
+          <div className="about-hobbies">
+            <span className="hobbies-label">My Hobbies</span>
+            <ul className="hobbies-list">
+              <li>Chess</li>
+              <li>Reading</li>
+              <li>Basketball</li>
+            </ul>
+          </div>
+          
           <div className="signature">
             Meet Thakur
-          </div>
-        </motion.div>
-
-        <motion.div 
-          className="about-stats-minimal"
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
-          <div className="stat-row">
-            <span className="stat-num">2+</span>
-            <span className="stat-label">Years of<br/>Experience</span>
-          </div>
-          <div className="stat-row">
-            <span className="stat-num">10+</span>
-            <span className="stat-label">Projects<br/>Shipped</span>
-          </div>
-          <div className="stat-row">
-            <span className="stat-num">500+</span>
-            <span className="stat-label">Problems<br/>Solved</span>
           </div>
         </motion.div>
       </div>

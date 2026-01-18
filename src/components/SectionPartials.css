@@ -37,21 +37,32 @@
 }
 
 /* Alignments */
+/* Alignments */
 .section-partials.left .section-index {
-  left: 0;
+  left: 10%;
 }
 .section-partials.left .section-watermark {
-  left: -2rem;
+  left: 2%;
 }
 
 .section-partials.right .section-index {
-  right: 0;
+  right: 10%;
 }
 .section-partials.right .section-watermark {
-  right: -2rem;
+  right: 2%;
 }
 
 @media (max-width: 768px) {
-  .section-index { font-size: 4rem; }
-  .section-watermark { font-size: 6rem; }
+  .section-index { 
+    font-size: 4rem; 
+    top: 10px;
+  }
+  .section-watermark { 
+    font-size: 6rem;
+    top: 10rem;
+  }
+  
+  /* Ensure safety on mobile edges */
+  .section-partials.left .section-index { left: 20px; }
+  .section-partials.right .section-index { right: 20px; }
 }

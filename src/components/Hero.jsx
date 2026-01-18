@@ -8,51 +8,31 @@ const Hero = () => {
   return (
     <section className="hero" id="home">
       <div className="hero-content">
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="hero-greeting"
-        >
-          Hi there, I'm
-        </motion.p>
-        
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, type: "spring" }}
+          transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
           className="hero-name"
         >
-          Meet Thakur
+          MEET<br />THAKUR
         </motion.h1>
 
         <motion.div 
           className="hero-title"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
+          transition={{ delay: 0.5 }}
         >
-          <span>I am a </span>
-          <span className="typewriter">
-            <Typewriter
-              words={['Developer', 'Programmer', 'Tech Enthusiast']}
-              loop={0}
-              cursor
-              cursorStyle='|'
-              typeSpeed={70}
-              deleteSpeed={50}
-              delaySpeed={1000}
-            />
-          </span>
+          <span className="hero-subtitle">FULL STACK DEVELOPER</span>
         </motion.div>
 
         <motion.p 
           className="hero-description"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
+          transition={{ delay: 0.7 }}
         >
-          Building streamlined, scalable, and secure digital experiences. 
+          Building streamlined, scalable, and secure digital experiences.<br/>
           Passionate about algorithms and creating sleek web applications.
         </motion.p>
 
@@ -60,22 +40,21 @@ const Hero = () => {
           className="hero-buttons"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1 }}
+          transition={{ delay: 0.9 }}
         >
-          <a href="#contact" className="btn primary-btn">Contact Me</a>
-          <a href="#projects" className="btn secondary-btn">View Work</a>
+          <a href="#projects" className="btn primary-btn">View Work</a>
+          <a href="#contact" className="btn secondary-btn">Contact Me</a>
         </motion.div>
 
         <motion.div 
           className="social-links"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
+          transition={{ delay: 1.1 }}
         >
-          {/* Replace # with actual links later */}
-          <a href="#" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
-          <a href="#" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
-          <a href="#" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
+          <a href="https://github.com/MeetThakur" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><FaGithub /></a>
+          <a href="https://www.linkedin.com/in/meetthakur/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedin /></a>
+          <a href="#" aria-label="Twitter"><FaTwitter /></a>
         </motion.div>
       </div>
 
