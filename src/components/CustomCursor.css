@@ -1,0 +1,17 @@
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+}
+
+@media (max-width: 768px) {
+  .cursor {
+    display: none;
+  }
+}

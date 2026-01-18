@@ -1,0 +1,109 @@
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  transform: none;
+  width: max-content;
+  max-width: 90vw;
+  min-width: unset;
+  height: 60px; /* Smaller height for pill */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  background: rgba(18, 18, 18, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08); /* Subtle border */
+  border-radius: 50px; /* Pill shape */
+  padding: 0 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Deep shadow for float effect */
+}
+
+/* Nav container adjustment */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.logo {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #fff;
+  margin-right: 2.5rem;
+  white-space: nowrap;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-link {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--secondary-color);
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.nav-link::after {
+  display: none; /* Remove underline */
+}
+
+.nav-link:hover, .nav-link.active {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05); /* Subtle pill highlighting */
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    top: auto;
+    bottom: 20px; /* Dock style on mobile */
+    min-width: 90%;
+    border-radius: 20px;
+  }
+}
+
+.menu-icon {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+@media screen and (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 5rem;
+    position: absolute;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: rgba(10, 10, 15, 0.95);
+    backdrop-filter: blur(20px);
+    transition: all 0.5s ease;
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+}

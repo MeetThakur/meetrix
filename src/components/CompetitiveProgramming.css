@@ -1,0 +1,68 @@
+.cp-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.cp-card {
+  width: 280px;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text-color);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.cp-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-color);
+}
+
+.cp-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--secondary-color);
+  transition: color 0.3s ease;
+}
+
+.cp-card:hover .cp-icon {
+  color: var(--text-color);
+}
+
+.cp-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.cp-stats {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+}
+
+.stat-row strong {
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.handle {
+  font-size: 0.85rem;
+  color: var(--primary-color);
+  font-family: monospace;
+  opacity: 0.8;
+}

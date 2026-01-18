@@ -1,0 +1,49 @@
+.section-partials {
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.section-index {
+  position: absolute;
+  top: 20px;
+  font-size: 8rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.03);
+  line-height: 1;
+}
+
+.section-watermark {
+  position: absolute;
+  top: 15rem;
+  font-size: 12rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.015);
+  white-space: nowrap;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* Alignments */
+.section-partials.left .section-index {
+  left: 0;
+}
+.section-partials.left .section-watermark {
+  left: -2rem;
+}
+
+.section-partials.right .section-index {
+  right: 0;
+}
+.section-partials.right .section-watermark {
+  right: -2rem;
+}
+
+@media (max-width: 768px) {
+  .section-index { font-size: 4rem; }
+  .section-watermark { font-size: 6rem; }
+}
