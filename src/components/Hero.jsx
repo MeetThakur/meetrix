@@ -23,21 +23,21 @@ const Hero = () => {
 
           <motion.h1 
             className="hero-heading"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.3 }}
           >
-            Building the <br/>
-            <span className="highlight-text">Digital Future</span>
+            Building the <br />
+            Digital Future
           </motion.h1>
-
+          
           <motion.p 
             className="hero-subtext"
-            initial={{ opacity: 0 }}
+            initial={{ y: 20, opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            I'm <strong>Meet</strong>, a Full Stack Developer crafting scalable applications and intuitive user experiences with modern technologies.
+            Hi, I'm <strong>Meet</strong>. I build clean, fast, and user-friendly web applications.
           </motion.p>
 
           <motion.div 

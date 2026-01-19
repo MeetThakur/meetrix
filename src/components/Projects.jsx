@@ -49,9 +49,9 @@ const Projects = () => {
     <section className="projects-section" id="projects">
       <SectionPartials index="03" title="WORK" align="left" />
       
-      <div className="projects-container-spotlight">
+      <div className="projects-container-simple">
         <motion.div 
-          className="spotlight-header"
+          className="simple-header"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -59,37 +59,28 @@ const Projects = () => {
           <h2 className="section-title">Selected Work</h2>
         </motion.div>
 
-        <div className="spotlight-stack">
+        <div className="simple-project-grid">
           {projects.map((project, index) => (
-            <motion.div 
+            <motion.a 
+              href={project.link}
               key={project.id}
-              className={`spotlight-row ${index % 2 !== 0 ? 'reverse' : ''}`}
-              initial={{ opacity: 0, y: 50 }}
+              className="simple-card"
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
               viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
             >
-              {/* Image Side */}
-              <div className="spotlight-visual">
-                <div className="visual-wrapper">
-                  <img src={project.image} alt={project.title} className="visual-img" />
-                  <a href={project.link} className="visual-overlay">
-                    <FaExternalLinkAlt />
-                  </a>
-                </div>
+              <div className="simple-image-box">
+                <img src={project.image} alt={project.title} />
               </div>
-
-              {/* Content Side */}
-              <div className="spotlight-content">
-                <span className="project-year">{project.year}</span>
-                <h3 className="project-title">{project.title}</h3>
-                <span className="project-cat">{project.category}</span>
-                <p className="project-desc">{project.description}</p>
-                <div className="project-actions">
-                  <a href={project.link} className="btn-link">View Case Study</a>
+              <div className="simple-content">
+                <div className="simple-top">
+                  <h3 className="simple-title">{project.title}</h3>
+                  <span className="simple-year">{project.year}</span>
                 </div>
+                <p className="simple-desc">{project.category}</p>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
       </div>

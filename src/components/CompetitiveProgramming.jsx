@@ -7,31 +7,28 @@ import './CompetitiveProgramming.css';
 const CompetitiveProgramming = () => {
   const profiles = [
     {
-      platform: 'LeetCode',
-      icon: <SiLeetcode />,
-      color: '#FFA116',
-      handle: 'Meet11_',
-      rating: '1581',
-      rank: 'Top 26%',
       platform: "LeetCode",
-      rating: "1581",
+      rating: "1581", // Rating isn't usually main stat for LC, stick to Solved? Or keep rating if known. Scrape just said 607 solved. Let's use Solved.
       rank: "Top 15%",
-      link: "https://leetcode.com/u/meet_thakur/",
-      color: "#ffa116" // LeetCode Orange
+      solved: "607",
+      link: "https://leetcode.com/u/Meet11_/",
+      color: "#ffa116"
     },
     {
       platform: "Codeforces",
       rating: "1439",
       rank: "Specialist",
-      link: "https://codeforces.com/profile/meet_thakur",
-      color: "#318CE7" // Codeforces Blue (using Blue/Red theme usually, but blue is nice here)
+      solved: "171",
+      link: "https://codeforces.com/profile/meet_11",
+      color: "#318CE7"
     },
     {
       platform: "CodeChef",
       rating: "1697",
       rank: "3 Star",
-      link: "https://www.codechef.com/users/meet_thakur",
-      color: "#5f4b32" // CodeChef Brown
+      solved: "100",
+      link: "https://www.codechef.com/users/meetrix",
+      color: "#5f4b32"
     }
   ];
 
@@ -46,34 +43,30 @@ const CompetitiveProgramming = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="section-title">Competitive<br/>Arena</h2>
+          <h2 className="section-title">Competitive<br/>Stats</h2>
         </motion.div>
 
-        <div className="trophy-grid">
+        <div className="stats-simple-grid">
           {profiles.map((profile, index) => (
             <motion.a 
               href={profile.link}
               target="_blank"
               rel="noopener noreferrer"
               key={index}
-              className="trophy-card"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.15 }}
+              className="stat-card-simple"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
               style={{ '--accent': profile.color }}
             >
-              <div className="trophy-icon">🏆</div>
-              <h3 className="platform-name">{profile.platform}</h3>
+              <h3 className="stat-platform">{profile.platform}</h3>
+              <div className="stat-big-number">{profile.rating}</div>
+              <p className="stat-label">Current Rating</p>
               
-              <div className="stat-row">
-                <span className="stat-label">Rating</span>
-                <span className="stat-value">{profile.rating}</span>
-              </div>
-              
-              <div className="stat-row">
-                <span className="stat-label">Rank</span>
-                <span className="stat-value highlight">{profile.rank}</span>
+              <div className="stat-meta">
+                <span className="meta-item">SOLVED: {profile.solved}</span>
+                <span className="meta-item">{profile.rank}</span>
               </div>
             </motion.a>
           ))}
