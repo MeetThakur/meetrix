@@ -26,34 +26,36 @@ const Skills = () => {
     <section className="skills-section" id="skills">
       <SectionPartials index="02" title="STACK" align="right" />
       
-      <div className="skills-container-strips">
-        <div className="strips-header">
-          <h2 className="section-title">Technical Arsenal</h2>
-          <p className="section-subtitle"> The tools and technologies I use to build the future.</p>
+      <div className="skills-marquee-container">
+        <div className="marquee-header">
+           <h2 className="section-title">Technical Arsenal</h2>
         </div>
 
-        <div className="skills-strips">
-          {categories.map((category, index) => (
-            <motion.div 
-              key={index}
-              className="skill-strip"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: index * 0.15 }}
-              viewport={{ once: true }}
-            >
-              <div className="strip-info">
-                <span className="strip-id">{category.id}</span>
-                <h3 className="strip-title">{category.title}</h3>
-              </div>
-              <div className="strip-skills">
-                {category.skills.map((skill, idx) => (
-                  <span key={idx} className="strip-pill">{skill}</span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+        {/* Marquee Row 1 (Left) */}
+        <div className="marquee-wrapper">
+          <div className="marquee-content scroll-left">
+            {categories[0].skills.concat(categories[1].skills).map((skill, index) => (
+               <span key={index} className="marquee-tag">{skill}</span>
+            ))}
+            {/* Duplicated for smooth loop */}
+             {categories[0].skills.concat(categories[1].skills).map((skill, index) => (
+               <span key={`dup-${index}`} className="marquee-tag">{skill}</span>
+            ))}
+          </div>
         </div>
+        
+        {/* Marquee Row 2 (Right) */}
+        <div className="marquee-wrapper">
+          <div className="marquee-content scroll-right">
+            {categories[2].skills.concat(['Figma', 'Linux', 'Vite', 'Redux', 'AWS']).map((skill, index) => (
+               <span key={index} className="marquee-tag hollow">{skill}</span>
+            ))}
+             {categories[2].skills.concat(['Figma', 'Linux', 'Vite', 'Redux', 'AWS']).map((skill, index) => (
+               <span key={`dup-${index}`} className="marquee-tag hollow">{skill}</span>
+            ))}
+          </div>
+        </div>
+
       </div>
     </section>
   );

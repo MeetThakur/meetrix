@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { SiCodeforces, SiLeetcode, SiCodechef } from 'react-icons/si';
 import SectionPartials from './SectionPartials';
