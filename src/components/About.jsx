@@ -25,27 +25,34 @@ const About = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <p className="lead-paragraph">
-            <span className="drop-cap">H</span>ello! I'm <strong>Meet Thakur</strong>, a passionate Computer Science undergraduate with a knack for solving complex problems and building intuitive digital solutions. My journey in tech is driven by curiosity and a relentless desire to learn.
-          </p>
-          <p>
-            I specialize in full-stack web development and have a strong foundation in data structures and algorithms. Whether it's crafting beautiful user interfaces or optimizing backend logic, I love every aspect of the development lifecycle.
-          </p>
-          <p>
-            When I'm not coding, you can find me competing on coding platforms, exploring the latest tech trends, or gaming.
-          </p>
-          
-          <div className="about-hobbies">
-            <span className="hobbies-label">My Hobbies</span>
-            <ul className="hobbies-list">
-              <li>Chess</li>
-              <li>Reading</li>
-              <li>Basketball</li>
-            </ul>
-          </div>
-          
-          <div className="signature">
-            Meet Thakur
+          <div className="magazine-layout">
+            <div className="magazine-col-1">
+              <p className="lead-paragraph">
+                Hello! I'm <strong>Meet Thakur</strong>, a passionate Computer Science undergraduate with a knack for solving complex problems and building intuitive digital solutions. My journey in tech is driven by curiosity and a relentless desire to learn.
+              </p>
+              <p>
+                I specialize in full-stack web development and have a strong foundation in data structures and algorithms. Whether it's crafting beautiful user interfaces or optimizing backend logic, I love every aspect of the development lifecycle.
+              </p>
+            </div>
+            
+            <div className="magazine-col-2">
+              <p>
+                When I'm not coding, you can find me competing on coding platforms, exploring the latest tech trends, or gaming.
+              </p>
+              
+              <div className="about-hobbies">
+                <span className="hobbies-label">My Hobbies</span>
+                <ul className="hobbies-list">
+                  <li>Chess</li>
+                  <li>Reading</li>
+                  <li>Basketball</li>
+                </ul>
+              </div>
+              
+              <div className="signature">
+                Meet Thakur
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>

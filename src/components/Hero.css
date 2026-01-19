@@ -3,10 +3,10 @@
   min-height: 100vh;
   display: flex;
   align-items: center; /* Center Vertically */
-  justify-content: center; /* Center Horizontally */
-  padding-top: 0;
+  justify-content: flex-start; /* Horizontal Left */
+  padding-top: 100px; /* Clear the navbar */
   overflow: hidden;
-  text-align: center;
+  text-align: left;
 }
 
 .hero-content {
@@ -16,8 +16,8 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center items */
-  padding-left: 0;
+  align-items: flex-start; /* Left align items */
+  padding-left: 10%; /* Restore left spacing */
 }
 
 .hero-greeting {
@@ -53,8 +53,8 @@
   max-width: 650px;
   margin-bottom: 3rem;
   line-height: 1.8;
-  margin-left: 0; /* Reset margins */
-  margin-right: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Background Elements */

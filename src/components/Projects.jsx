@@ -5,7 +5,6 @@ import SectionPartials from './SectionPartials';
 import './Projects.css';
 
 const Projects = () => {
-  const [activeProject, setActiveProject] = React.useState(null);
 
   const projects = [
     {
@@ -60,38 +59,31 @@ const Projects = () => {
           <h2>Selected Work</h2>
         </motion.div>
 
-        <div className="project-list">
+        <div className="projects-grid">
           {projects.map((project) => (
             <motion.a 
               href={project.link}
               key={project.id}
-              className="project-item"
-              onMouseEnter={() => setActiveProject(project.id)}
-              onMouseLeave={() => setActiveProject(null)}
-              initial={{ opacity: 0, y: 20 }}
+              className="project-card"
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              transition={{ delay: project.id * 0.1 }}
             >
-              <div className="project-info">
-                <span className="project-year">{project.year}</span>
-                <h3 className="project-title">{project.title}</h3>
-                <span className="project-category">{project.category}</span>
+              <div className="card-image-container">
+                <img src={project.image} alt={project.title} className="card-image" />
+                <div className="card-overlay">
+                  <span className="view-project">View Case Study</span>
+                </div>
               </div>
               
-              {/* Hover Image Reveal */}
-              <motion.div 
-                className="project-image-reveal"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ 
-                  opacity: activeProject === project.id ? 1 : 0,
-                  scale: activeProject === project.id ? 1 : 0.8,
-                  x: activeProject === project.id ? 20 : 0,
-                  rotate: activeProject === project.id ? -2 : 0
-                }}
-                transition={{ duration: 0.3 }}
-              >
-                <img src={project.image} alt={project.title} />
-              </motion.div>
+              <div className="card-content">
+                <div className="card-header">
+                  <h3 className="card-title">{project.title}</h3>
+                  <span className="card-year">{project.year}</span>
+                </div>
+                <span className="card-category">{project.category}</span>
+              </div>
             </motion.a>
           ))}
         </div>
