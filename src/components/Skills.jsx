@@ -26,38 +26,29 @@ const Skills = () => {
     <section className="skills-section" id="skills">
       <SectionPartials index="02" title="STACK" align="right" />
       
-      <div className="skills-container-bento">
-        {/* Header - now centered or aligned to grid start */}
-        <motion.div 
-          className="bento-header"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
+      <div className="skills-container-strips">
+        <div className="strips-header">
           <h2 className="section-title">Technical Arsenal</h2>
-          <p className="section-subtitle">The tools and technologies I use to build the future.</p>
-        </motion.div>
+          <p className="section-subtitle"> The tools and technologies I use to build the future.</p>
+        </div>
 
-        {/* Bento Grid */}
-        <div className="bento-grid">
+        <div className="skills-strips">
           {categories.map((category, index) => (
             <motion.div 
               key={index}
-              className="bento-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
+              className="skill-strip"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: index * 0.15 }}
               viewport={{ once: true }}
             >
-              <div className="bento-card-header">
-                <span className="cat-id">{category.id}</span>
-                <h3 className="cat-title">{category.title}</h3>
+              <div className="strip-info">
+                <span className="strip-id">{category.id}</span>
+                <h3 className="strip-title">{category.title}</h3>
               </div>
-              <div className="bento-content">
+              <div className="strip-skills">
                 {category.skills.map((skill, idx) => (
-                  <div key={idx} className="bento-pill">
-                    {skill}
-                  </div>
+                  <span key={idx} className="strip-pill">{skill}</span>
                 ))}
               </div>
             </motion.div>

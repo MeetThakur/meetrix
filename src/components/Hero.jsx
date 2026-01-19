@@ -37,7 +37,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            Hi, I'm <strong>Meet</strong>. I build clean, fast, and user-friendly web applications.
+            Hi, I'm <strong>Meet</strong>. I build scalable software and solve complex problems with code.
           </motion.p>
 
           <motion.div 
@@ -74,8 +74,8 @@ const Hero = () => {
             <div className="glass-card card-2"></div>
             <div className="glass-card card-3">
               <div className="code-snippet">
-                <span className="code-line">const <span className="var">future</span> = <span className="keyword">new</span> <span className="type">Builder</span>();</span>
-                <span className="code-line">future.<span className="method">create</span>(<span className="string">"Impact"</span>);</span>
+                <span className="code-line"><span className="keyword">const</span> future = <span className="keyword">new</span> <span className="entity">Builder</span>();</span>
+                <span className="code-line">future.<span className="function">create</span>(<span className="string">"Impact"</span>);</span>
               </div>
             </div>
           </motion.div>

@@ -72,13 +72,17 @@
   position: relative;
   width: 100%;
   max-width: 400px;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.02); /* Very subtle fill */
+  border: 1px solid rgba(255, 255, 255, 0.03); /* Barely visible border */
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+  box-shadow: none; /* Removed heavy shadow */
   transform-style: preserve-3d;
-  background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+}
+
+.about-card:hover {
+  border-color: rgba(255, 255, 255, 0.08); /* Slight glow on hover */
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .card-content {
