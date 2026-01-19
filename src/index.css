@@ -11,13 +11,13 @@
 }
 
 [data-theme='light'] {
-  --bg-color: #ffffff; /* Pure White */
-  --text-color: #121212; /* Pitch Black */
-  --primary-color: #000000; /* Black accent */
-  --secondary-color: #525252; /* Dark Grey */
-  --accent-color: #e5e5e5; /* Light Grey accent */
-  --glass-bg: rgba(0, 0, 0, 0.03); /* Dark glass for light mode */
-  --glass-border: rgba(0, 0, 0, 0.08);
+  --bg-color: #e5e5e5; /* Neutral Light Grey (Reduced Glare) */
+  --text-color: #0a0a0a; /* Deep Black */
+  --primary-color: #171717; /* Strong Accent */
+  --secondary-color: #525252; /* Dark Neutral */
+  --accent-color: #d4d4d4; /* Mid Grey */
+  --glass-bg: rgba(255, 255, 255, 0.6); /* Stronger frost */
+  --glass-border: rgba(0, 0, 0, 0.1); /* Defined edges */
 }
 
 * {

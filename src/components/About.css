@@ -1,138 +1,155 @@
 .about {
-  position: relative;
   min-height: 90vh;
-  padding: 100px 5%;
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Left Align */
+  justify-content: center;
+  padding: 100px 5%;
 }
 
-.about-content {
-  max-width: 1000px;
+.about-container {
+  max-width: 1400px;
   width: 100%;
-  margin: 0;
-  margin-left: 10%; /* Match Hero inset */
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+/* Text Side */
+.about-text-side {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Left Align */
-  text-align: left;
+  align-items: flex-start;
 }
 
-.about-text {
-  font-size: 1.25rem;
+.section-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  color: var(--text-color);
+  letter-spacing: -0.02em;
+}
+
+.about-bio {
+  font-size: 1.15rem;
   line-height: 1.8;
   color: var(--secondary-color);
-  width: 100%;
 }
 
-.about-text p {
-  margin-bottom: 2rem;
-  text-align: left; /* Strict Left Align */
-}
-
-.about-text strong {
+.lead-text {
+  font-size: 1.3rem;
   color: var(--text-color);
-  font-weight: 500;
+  margin-bottom: 2rem;
 }
 
-/* Magazine Layout Grid */
-.magazine-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  position: relative;
-  align-items: start;
+.about-bio strong {
+  color: var(--text-color);
+  font-weight: 600;
 }
 
-/* Vertical Divider Line */
-.magazine-layout::after {
-  content: '';
-  position: absolute;
-  top: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 95%;
-  width: 1px;
-  background: var(--glass-border);
-}
-
-.magazine-col-1, .magazine-col-2 {
-  display: flex;
-  flex-direction: column;
+.about-bio p {
+  margin-bottom: 2rem;
 }
 
 .signature {
-  font-family: 'Cursive', serif; 
+  font-family: 'Cursive', serif; /* Ensure you have a cursive font loaded or fallback */
   font-style: italic;
-  font-size: 2rem;
-  margin-top: auto;
-  align-self: flex-start; /* Left Align Signature */
+  font-size: 2.5rem;
   color: var(--text-color);
-  opacity: 0.8;
-  padding-top: 2rem;
+  opacity: 0.7;
+  margin-top: 1rem;
 }
 
-.about-hobbies {
-  margin-top: 2rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--glass-border);
+/* Visual Side - Glass Card */
+.about-visual-side {
+  display: flex;
+  justify-content: center;
+  perspective: 1000px;
+}
+
+.about-card {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+  transform-style: preserve-3d;
+  background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+}
+
+.card-content {
+  padding: 3rem 2.5rem;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  align-items: flex-start; /* Left Align */
+  gap: 2rem;
 }
 
-.hobbies-label {
-  display: block;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--secondary-color);
-  margin-bottom: 1rem;
-}
-
-.hobbies-list {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  justify-content: flex-start; /* Left Align */
-}
-
-.hobbies-list li {
-  font-size: 1rem;
+.card-heading {
+  font-size: 1.5rem;
+  font-weight: 600;
   color: var(--text-color);
-  font-weight: 500;
-  position: relative;
-  padding-right: 1rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--glass-border);
 }
 
-.hobbies-list li:not(:last-child)::after {
-  content: "/";
-  position: absolute;
-  right: 0;
+.hobbies-grid {
+  list-style: none;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.hobbies-grid li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.1rem;
   color: var(--secondary-color);
-  opacity: 0.5;
-  font-weight: 300;
+  transition: transform 0.3s ease;
+}
+
+.hobbies-grid li:hover {
+  transform: translateX(10px);
+  color: var(--text-color);
+}
+
+.hobbies-grid li .icon {
+  font-size: 1.4rem;
+  opacity: 0.8;
+}
+
+.card-footer {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--glass-border);
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Light Mode Overrides */
+[data-theme='light'] .about-card {
+  background: rgba(255,255,255,0.6);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.05);
+  border-color: rgba(0,0,0,0.05);
+}
+
+[data-theme='light'] .signature {
+  color: var(--primary-color);
 }
 
 @media screen and (max-width: 900px) {
-  .about-content {
-    margin-left: 5%;
-    padding: 0 1rem;
-  }
-
-  .magazine-layout {
+  .about-container {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 4rem;
   }
   
-  .magazine-layout::after {
-    display: none;
-  }
-
-  .signature {
-    margin-top: 2rem;
+  .about-text-side {
+    align-items: flex-start;
+    text-align: left;
   }
 }

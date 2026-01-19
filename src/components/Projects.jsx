@@ -49,42 +49,47 @@ const Projects = () => {
     <section className="projects-section" id="projects">
       <SectionPartials index="03" title="WORK" align="left" />
       
-      <div className="projects-container">
+      <div className="projects-container-spotlight">
         <motion.div 
-          className="section-header"
+          className="spotlight-header"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2>Selected Work</h2>
+          <h2 className="section-title">Selected Work</h2>
         </motion.div>
 
-        <div className="projects-grid">
-          {projects.map((project) => (
-            <motion.a 
-              href={project.link}
+        <div className="spotlight-stack">
+          {projects.map((project, index) => (
+            <motion.div 
               key={project.id}
-              className="project-card"
-              initial={{ opacity: 0, y: 30 }}
+              className={`spotlight-row ${index % 2 !== 0 ? 'reverse' : ''}`}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
               viewport={{ once: true }}
-              transition={{ delay: project.id * 0.1 }}
             >
-              <div className="card-image-container">
-                <img src={project.image} alt={project.title} className="card-image" />
-                <div className="card-overlay">
-                  <span className="view-project">View Case Study</span>
+              {/* Image Side */}
+              <div className="spotlight-visual">
+                <div className="visual-wrapper">
+                  <img src={project.image} alt={project.title} className="visual-img" />
+                  <a href={project.link} className="visual-overlay">
+                    <FaExternalLinkAlt />
+                  </a>
                 </div>
               </div>
-              
-              <div className="card-content">
-                <div className="card-header">
-                  <h3 className="card-title">{project.title}</h3>
-                  <span className="card-year">{project.year}</span>
+
+              {/* Content Side */}
+              <div className="spotlight-content">
+                <span className="project-year">{project.year}</span>
+                <h3 className="project-title">{project.title}</h3>
+                <span className="project-cat">{project.category}</span>
+                <p className="project-desc">{project.description}</p>
+                <div className="project-actions">
+                  <a href={project.link} className="btn-link">View Case Study</a>
                 </div>
-                <span className="card-category">{project.category}</span>
               </div>
-            </motion.a>
+            </motion.div>
           ))}
         </div>
       </div>

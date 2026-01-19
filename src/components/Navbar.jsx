@@ -48,7 +48,9 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="nav-container">
-        <a href="#" className="logo">Meet Thakur</a>
+        <a href="#home" className="logo">
+          Meet
+        </a>
         
         <div className="menu-icon" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <FaTimes /> : <FaBars />}

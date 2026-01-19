@@ -7,54 +7,68 @@ const About = () => {
   return (
     <section className="about" id="about">
       <SectionPartials index="01" title="STORY" align="left" />
-      <motion.div 
-        className="section-header"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-      >
-        <h2>About Me</h2>
-      </motion.div>
+      <div className="about-container">
+        {/* Left Side: Narrative */}
+        <div className="about-text-side">
+          <motion.div 
+            className="section-header"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="section-title">About Me</h2>
+          </motion.div>
 
-      <div className="about-content">
-        <motion.div 
-          className="about-text"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <div className="magazine-layout">
-            <div className="magazine-col-1">
-              <p className="lead-paragraph">
-                Hello! I'm <strong>Meet Thakur</strong>, a passionate Computer Science undergraduate with a knack for solving complex problems and building intuitive digital solutions. My journey in tech is driven by curiosity and a relentless desire to learn.
-              </p>
-              <p>
-                I specialize in full-stack web development and have a strong foundation in data structures and algorithms. Whether it's crafting beautiful user interfaces or optimizing backend logic, I love every aspect of the development lifecycle.
-              </p>
-            </div>
+          <motion.div 
+            className="about-bio"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <p className="lead-text">
+              Hello! I'm <strong>Meet</strong>, a passionate Computer Science undergraduate solving complex problems with code. My journey is driven by curiosity and a relentless desire to build.
+            </p>
+            <p>
+              I specialize in full-stack web development with a strong foundation in data structures. Whether it's crafting pixel-perfect interfaces or optimizing backend logic, I love the entire lifecycle of software creation.
+            </p>
             
-            <div className="magazine-col-2">
-              <p>
-                When I'm not coding, you can find me competing on coding platforms, exploring the latest tech trends, or gaming.
-              </p>
-              
-              <div className="about-hobbies">
-                <span className="hobbies-label">My Hobbies</span>
-                <ul className="hobbies-list">
-                  <li>Chess</li>
-                  <li>Reading</li>
-                  <li>Basketball</li>
-                </ul>
-              </div>
-              
-              <div className="signature">
-                Meet Thakur
+            <div className="signature">Meet</div>
+          </motion.div>
+        </div>
+
+        {/* Right Side: Visual Stats Card */}
+        <div className="about-visual-side">
+          <motion.div 
+            className="about-card"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="card-glass-layer"></div>
+            <div className="card-content">
+              <h3 className="card-heading">Beyond Code</h3>
+              <ul className="hobbies-grid">
+                <li>
+                  <span className="icon">♟️</span>
+                  <span>Chess Strategy</span>
+                </li>
+                <li>
+                  <span className="icon">📚</span>
+                  <span>Tech Reading</span>
+                </li>
+                <li>
+                  <span className="icon">🏀</span>
+                  <span>Basketball</span>
+                </li>
+              </ul>
+              <div className="card-footer">
+                <span>Based in New Delhi</span>
               </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

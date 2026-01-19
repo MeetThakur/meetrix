@@ -26,33 +26,38 @@ const Skills = () => {
     <section className="skills-section" id="skills">
       <SectionPartials index="02" title="STACK" align="right" />
       
-      <div className="skills-content">
+      <div className="skills-container-bento">
+        {/* Header - now centered or aligned to grid start */}
         <motion.div 
-          className="section-header"
+          className="bento-header"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2>Technical Arsenal</h2>
+          <h2 className="section-title">Technical Arsenal</h2>
+          <p className="section-subtitle">The tools and technologies I use to build the future.</p>
         </motion.div>
 
-        <div className="skills-grid">
+        {/* Bento Grid */}
+        <div className="bento-grid">
           {categories.map((category, index) => (
             <motion.div 
-              key={index} 
-              className="skill-column"
+              key={index}
+              className="bento-card"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
+              transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <div className="column-header">
-                <span className="column-id">{category.id}</span>
-                <h3 className="column-title">{category.title}</h3>
+              <div className="bento-card-header">
+                <span className="cat-id">{category.id}</span>
+                <h3 className="cat-title">{category.title}</h3>
               </div>
-              <div className="skill-badges">
+              <div className="bento-content">
                 {category.skills.map((skill, idx) => (
-                  <span key={idx} className="skill-badge">{skill}</span>
+                  <div key={idx} className="bento-pill">
+                    {skill}
+                  </div>
                 ))}
               </div>
             </motion.div>

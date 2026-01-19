@@ -7,76 +7,84 @@ import './Hero.css';
 const Hero = () => {
   return (
     <section className="hero" id="home">
-      <div className="hero-content">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
-          className="hero-name"
-        >
-          MEET<br />THAKUR
-        </motion.h1>
+      <div className="hero-container">
+        
+        {/* Left Side: Content */}
+        <div className="hero-text-side">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="hero-badge"
+          >
+            <span className="availability-dot"></span>
+            Available for new projects
+          </motion.div>
 
-        <motion.div 
-          className="hero-title"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-        >
-          <span className="hero-subtitle">FULL STACK DEVELOPER</span>
-        </motion.div>
+          <motion.h1 
+            className="hero-heading"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+          >
+            Building the <br/>
+            <span className="highlight-text">Digital Future</span>
+          </motion.h1>
 
-        <motion.p 
-          className="hero-description"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.7 }}
-        >
-          Building streamlined, scalable, and secure digital experiences.<br/>
-          Passionate about algorithms and creating sleek web applications.
-        </motion.p>
+          <motion.p 
+            className="hero-subtext"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+          >
+            I'm <strong>Meet</strong>, a Full Stack Developer crafting scalable applications and intuitive user experiences with modern technologies.
+          </motion.p>
 
-        <motion.div 
-          className="hero-buttons"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9 }}
-        >
-          <a href="#projects" className="btn primary-btn">View Work</a>
-          <a href="#contact" className="btn secondary-btn">Contact Me</a>
-        </motion.div>
+          <motion.div 
+            className="hero-actions"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7 }}
+          >
+            <a href="#projects" className="btn btn-primary">View My Work</a>
+            <a href="#contact" className="btn btn-secondary">Contact Me</a>
+          </motion.div>
 
-        <motion.div 
-          className="social-links"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.1 }}
-        >
-          <a href="https://github.com/MeetThakur" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><FaGithub /></a>
-          <a href="https://www.linkedin.com/in/meetthakur/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedin /></a>
-          <a href="#" aria-label="Twitter"><FaTwitter /></a>
-        </motion.div>
+          <motion.div 
+            className="hero-socials"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.9 }}
+          >
+            <a href="https://github.com/MeetThakur" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
+            <a href="https://www.linkedin.com/in/meetthakur/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+            <a href="#" aria-label="Twitter"><FaTwitter /></a>
+          </motion.div>
+        </div>
+
+        {/* Right Side: Visual */}
+        <div className="hero-visual-side">
+          <motion.div 
+            className="glass-stack-container"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+          >
+            <div className="glass-card card-1"></div>
+            <div className="glass-card card-2"></div>
+            <div className="glass-card card-3">
+              <div className="code-snippet">
+                <span className="code-line">const <span className="var">future</span> = <span className="keyword">new</span> <span className="type">Builder</span>();</span>
+                <span className="code-line">future.<span className="method">create</span>(<span className="string">"Impact"</span>);</span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
       </div>
-
-      <motion.div 
-        className="hero-bg-elements"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
-      >
-        <div className="watermark">DEVELOPER</div>
-        <div className="geometric-shape"></div>
-      </motion.div>
-
-      <motion.div
-        className="scroll-indicator"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-      >
-        <span>SCROLL</span>
-        <div className="line"></div>
-      </motion.div>
+      
+      {/* Background Ambience */}
+      <div className="hero-glow"></div>
     </section>
   );
 };

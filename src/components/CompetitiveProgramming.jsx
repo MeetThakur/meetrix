@@ -13,28 +13,25 @@ const CompetitiveProgramming = () => {
       handle: 'Meet11_',
       rating: '1581',
       rank: 'Top 26%',
-      solved: '607',
-      link: 'https://leetcode.com/Meet11_/'
+      platform: "LeetCode",
+      rating: "1581",
+      rank: "Top 15%",
+      link: "https://leetcode.com/u/meet_thakur/",
+      color: "#ffa116" // LeetCode Orange
     },
     {
-      platform: 'Codeforces',
-      icon: <SiCodeforces />,
-      color: '#1F8ACB',
-      handle: 'meet_11',
-      rating: '1439',
-      rank: 'Specialist',
-      solved: 'Max 1439',
-      link: 'https://codeforces.com/profile/meet_11'
+      platform: "Codeforces",
+      rating: "1439",
+      rank: "Specialist",
+      link: "https://codeforces.com/profile/meet_thakur",
+      color: "#318CE7" // Codeforces Blue (using Blue/Red theme usually, but blue is nice here)
     },
     {
-      platform: 'CodeChef',
-      icon: <SiCodechef />,
-      color: '#5B4638',
-      handle: 'meetrix',
-      rating: '1697',
-      rank: '3 Star',
-      solved: '100+',
-      link: 'https://www.codechef.com/users/meetrix'
+      platform: "CodeChef",
+      rating: "1697",
+      rank: "3 Star",
+      link: "https://www.codechef.com/users/meet_thakur",
+      color: "#5f4b32" // CodeChef Brown
     }
   ];
 
@@ -44,42 +41,40 @@ const CompetitiveProgramming = () => {
       
       <div className="cp-container">
         <motion.div 
-          className="section-header"
+          className="cp-header"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2>Statistics</h2>
+          <h2 className="section-title">Competitive<br/>Arena</h2>
         </motion.div>
 
-        <div className="leaderboard">
-          <div className="leaderboard-header">
-            <span>Platform</span>
-            <span>Handle</span>
-            <span>Rating</span>
-            <span>Global Rank</span>
-          </div>
-          
+        <div className="trophy-grid">
           {profiles.map((profile, index) => (
             <motion.a 
               href={profile.link}
               target="_blank"
               rel="noopener noreferrer"
               key={index}
-              className="leaderboard-row"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
+              className="trophy-card"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ delay: index * 0.15 }}
               viewport={{ once: true }}
-              whileHover={{ x: 10 }}
+              style={{ '--accent': profile.color }}
             >
-              <div className="lb-platform">
-                <span className="lb-icon" style={{ color: profile.color }}>{profile.icon}</span>
-                {profile.platform}
+              <div className="trophy-icon">🏆</div>
+              <h3 className="platform-name">{profile.platform}</h3>
+              
+              <div className="stat-row">
+                <span className="stat-label">Rating</span>
+                <span className="stat-value">{profile.rating}</span>
               </div>
-              <div className="lb-handle">@{profile.handle}</div>
-              <div className="lb-rating">{profile.rating}</div>
-              <div className="lb-rank">{profile.rank}</div>
+              
+              <div className="stat-row">
+                <span className="stat-label">Rank</span>
+                <span className="stat-value highlight">{profile.rank}</span>
+              </div>
             </motion.a>
           ))}
         </div>

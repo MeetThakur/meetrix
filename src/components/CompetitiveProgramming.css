@@ -1,120 +1,121 @@
 .cp-section {
+  min-height: 70vh;
   position: relative;
-  min-height: 80vh;
-  padding: 100px 5%;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  padding: 100px 5%;
 }
 
 .cp-container {
-  max-width: 1000px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.leaderboard {
-  display: flex;
-  flex-direction: column;
+  max-width: 1200px;
   width: 100%;
 }
 
-.leaderboard-header {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
-  padding: 1rem 2rem;
-  border-bottom: 1px solid var(--secondary-color);
-  color: var(--secondary-color);
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 1rem;
+.cp-header {
+  margin-bottom: 4rem;
+  text-align: center;
 }
 
-.leaderboard-row {
+.trophy-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
-  padding: 2rem;
-  align-items: center;
-  border-bottom: 1px solid var(--glass-border);
-  text-decoration: none;
-  color: var(--text-color);
-  transition: all 0.3s ease;
-  background: transparent;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  justify-content: center;
 }
 
-.leaderboard-row:hover {
+.trophy-card {
+  position: relative;
   background: var(--glass-bg);
-  border-color: var(--secondary-color);
-}
-
-.lb-platform {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-.lb-icon {
-  font-size: 1.8rem;
-  display: flex;
-  align-items: center;
-}
-
-.lb-handle {
-  font-family: monospace;
-  color: var(--secondary-color);
-}
-
-.lb-rating {
-  font-weight: 700;
-  font-size: 1.2rem;
-}
-
-.lb-rank {
-  color: var(--secondary-color);
-  font-size: 0.9rem;
-  padding: 0.5rem 1rem;
   border: 1px solid var(--glass-border);
   border-radius: 20px;
-  width: fit-content;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
 }
 
-[data-theme='light'] .leaderboard-header {
-  border-color: rgba(0,0,0,0.1);
+/* Dynamic glow based on accent color */
+.trophy-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: var(--accent);
+  opacity: 0.8;
 }
 
-[data-theme='light'] .leaderboard-row {
-  border-color: rgba(0,0,0,0.1);
+.trophy-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
 }
 
-[data-theme='light'] .leaderboard-row:hover {
-  background: rgba(0,0,0,0.02);
-  border-color: var(--text-color);
+.trophy-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  filter: grayscale(100%);
+  transition: filter 0.3s;
 }
 
-@media screen and (max-width: 768px) {
-  .leaderboard-header {
-    display: none; /* Hide header on mobile */
-  }
+.trophy-card:hover .trophy-icon {
+  filter: grayscale(0%);
+}
 
-  .leaderboard-row {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-    padding: 1.5rem;
-    text-align: center;
-    border: 1px solid var(--glass-border);
-    margin-bottom: 1rem;
-    border-radius: 12px;
-  }
+.platform-name {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
 
-  .lb-platform {
-    justify-content: center;
-    margin-bottom: 0.5rem;
-  }
-  
-  .lb-rank {
-    margin: 0 auto;
-  }
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stat-row:last-child {
+  border-bottom: none;
+}
+
+.stat-label {
+  color: var(--secondary-color);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-value {
+  color: var(--text-color);
+  font-weight: 600;
+  font-family: monospace;
+  font-size: 1.1rem;
+}
+
+.stat-value.highlight {
+  color: var(--accent);
+}
+
+/* Light Mode Overrides */
+[data-theme='light'] .trophy-card {
+  background: rgba(255,255,255,0.7);
+  box-shadow: 0 10px 30px -5px rgba(0,0,0,0.05);
+  border-color: rgba(0,0,0,0.05);
+}
+
+[data-theme='light'] .stat-row {
+  border-color: rgba(0,0,0,0.05);
+}
+
+[data-theme='light'] .trophy-card:hover {
+  background: #fff;
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1);
 }
