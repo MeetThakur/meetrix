@@ -49,7 +49,7 @@ const Navbar = () => {
     >
       <div className="nav-container">
         <a href="#home" className="logo">
-          Meet
+          Meetrix
         </a>
         
         <div className="menu-icon" onClick={() => setIsOpen(!isOpen)}>

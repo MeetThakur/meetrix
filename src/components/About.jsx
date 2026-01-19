@@ -8,16 +8,17 @@ const About = () => {
     <section className="about" id="about">
       <SectionPartials index="01" title="ABOUT" align="left" />
       
-      <div className="about-container-centered">
+      <div className="about-container-split">
         
+        {/* Left: Text Content */}
         <motion.div 
-          className="about-content-wrapper"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          className="about-text-side"
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <div className="section-header-center">
+          <div className="section-header-left">
              <h2 className="section-title">About Me</h2>
           </div>
 
@@ -38,6 +39,21 @@ const About = () => {
              Meet
           </div>
 
+        </motion.div>
+
+        {/* Right: Abstract Visual */}
+        <motion.div 
+          className="about-visual-side"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <div className="abstract-geo-art">
+            <div className="geo-circle"></div>
+            <div className="geo-square"></div>
+            <div className="geo-dots"></div>
+          </div>
         </motion.div>
 
       </div>
