@@ -4,7 +4,7 @@ import './CustomCursor.css';
 
 const CustomCursor = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [cursorVariant, setCursorVariant] = useState('default');
+  const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
     const mouseMove = (e) => {
@@ -14,62 +14,71 @@ const CustomCursor = () => {
       });
     };
 
+    const handleMouseOver = (e) => {
+      if (
+        e.target.tagName === 'A' ||
+        e.target.tagName === 'BUTTON' ||
+        e.target.closest('a') ||
+        e.target.closest('button') ||
+        e.target.classList.contains('clickable')
+      ) {
+        setIsHovering(true);
+      } else {
+        setIsHovering(false);
+      }
+    };
+
     window.addEventListener('mousemove', mouseMove);
+    window.addEventListener('mouseover', handleMouseOver);
 
     return () => {
       window.removeEventListener('mousemove', mouseMove);
+      window.removeEventListener('mouseover', handleMouseOver);
     };
   }, []);
 
   const variants = {
     default: {
-      x: mousePosition.x - 16,
-      y: mousePosition.y - 16,
-      backgroundColor: "transparent",
-      border: "2px solid #06b6d4",
+      x: mousePosition.x - 8,
+      y: mousePosition.y - 8,
+      scale: 1,
     },
     hover: {
-      height: 50,
-      width: 50,
-      x: mousePosition.x - 25,
-      y: mousePosition.y - 25,
-      backgroundColor: "rgba(6, 182, 212, 0.3)",
-      border: "none",
-      mixBlendMode: "difference"
+      x: mousePosition.x - 8,
+      y: mousePosition.y - 8,
+      scale: 2.5,
+      backgroundColor: "rgba(255, 255, 255, 0.1)",
+      border: "1px solid rgba(255, 255, 255, 0.5)",
     }
   };
 
-  // Add event listeners for hover effects on mount
-  useEffect(() => {
-    const handleMouseOver = () => setCursorVariant('hover');
-    const handleMouseOut = () => setCursorVariant('default');
-
-    const links = document.querySelectorAll('a, button, .project-card, .skill-card, .cp-card');
-    links.forEach(link => {
-      link.addEventListener('mouseenter', handleMouseOver);
-      link.addEventListener('mouseleave', handleMouseOut);
-    });
-
-    return () => {
-      links.forEach(link => {
-        link.removeEventListener('mouseenter', handleMouseOver);
-        link.removeEventListener('mouseleave', handleMouseOut);
-      });
-    };
-  }, []); // Note: This might need to re-run on route changes or content updates
+  const dotVariants = {
+    default: {
+      x: mousePosition.x - 4,
+      y: mousePosition.y - 4,
+    },
+    hover: {
+      x: mousePosition.x - 4,
+      y: mousePosition.y - 4,
+      opacity: 0
+    }
+  };
 
   return (
-    <motion.div
-      className="cursor"
-      variants={variants}
-      animate={cursorVariant}
-      transition={{
-        type: "spring",
-        stiffness: 500,
-        damping: 28,
-        mass: 0.5
-      }}
-    />
+    <>
+      <motion.div
+        className="cursor-ring"
+        variants={variants}
+        animate={isHovering ? "hover" : "default"}
+        transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
+      />
+      <motion.div
+        className="cursor-dot"
+        variants={dotVariants}
+        animate={isHovering ? "hover" : "default"}
+        transition={{ type: "spring", stiffness: 500, damping: 28 }}
+      />
+    </>
   );
 };
 

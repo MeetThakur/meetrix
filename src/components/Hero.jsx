@@ -18,7 +18,7 @@ const Hero = () => {
             className="hero-badge"
           >
             <span className="availability-dot"></span>
-            Available for new projects
+            Available for new opportunities
           </motion.div>
 
           <motion.h1 
@@ -37,7 +37,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            Hi, I'm <strong>Meet</strong>. I build scalable software and solve complex problems with code.
+            Hi, I'm <strong>Meet</strong>. Transforming ideas into reality through technology.
           </motion.p>
 
           <motion.div 

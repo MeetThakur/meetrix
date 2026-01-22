@@ -1,17 +1,42 @@
-.cursor {
+.cursor-ring {
   position: fixed;
   top: 0;
   left: 0;
-  width: 32px;
-  height: 32px;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--text-color);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
-  box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+  mix-blend-mode: difference;
 }
 
-@media (max-width: 768px) {
-  .cursor {
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background-color: var(--text-color);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  mix-blend-mode: difference;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .cursor-ring,
+  .cursor-dot {
     display: none;
   }
+}
+
+body {
+  cursor: none; /* Hide default cursor */
+}
+
+a,
+button,
+.clickable {
+  cursor: none; /* Ensure custom cursor is used */
 }
