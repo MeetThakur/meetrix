@@ -5,6 +5,7 @@ import SectionPartials from './SectionPartials';
 import './Projects.css';
 
 const Projects = () => {
+  const [activeId, setActiveId] = React.useState(1);
 
   const projects = [
     {
@@ -12,7 +13,7 @@ const Projects = () => {
       title: 'Project Alpha',
       category: 'E-commerce',
       year: '2025',
-      image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop', // Placeholder high-res
+      image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop', 
       description: 'Full-scale e-commerce platform with Node.js',
       link: '#'
     },
@@ -49,40 +50,62 @@ const Projects = () => {
     <section className="projects-section" id="projects">
       <SectionPartials index="03" title="WORK" align="left" />
       
-      <div className="projects-container-simple">
-        <motion.div 
-          className="simple-header"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="section-title">Selected Work</h2>
-        </motion.div>
-
-        <div className="simple-project-grid">
-          {projects.map((project, index) => (
-            <motion.a 
-              href={project.link}
-              key={project.id}
-              className="simple-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-            >
-              <div className="simple-image-box">
-                <img src={project.image} alt={project.title} />
-              </div>
-              <div className="simple-content">
-                <div className="simple-top">
-                  <h3 className="simple-title">{project.title}</h3>
-                  <span className="simple-year">{project.year}</span>
-                </div>
-                <p className="simple-desc">{project.category}</p>
-              </div>
-            </motion.a>
-          ))}
+      <div className="projects-container-sticky">
+        
+        {/* Left: Sticky Visual Preview */}
+        <div className="project-preview-side">
+          <div className="preview-frame">
+             {projects.map((project) => (
+                <motion.img 
+                  key={project.id}
+                  src={project.image} 
+                  alt={project.title}
+                  className="preview-image"
+                  initial={{ opacity: 0, scale: 1.1 }}
+                  animate={{ 
+                    opacity: activeId === project.id ? 1 : 0,
+                    scale: activeId === project.id ? 1 : 1.1
+                  }}
+                  transition={{ duration: 0.5 }}
+                />
+             ))}
+             <div className="preview-overlay"></div>
+          </div>
         </div>
+
+        {/* Right: Project List */}
+        <div className="project-list-side">
+           <div className="list-header">
+             <h2 className="section-title">Selected<br/>Works</h2>
+           </div>
+
+           <div className="project-list">
+             {projects.map((project) => (
+               <motion.a
+                 href={project.link}
+                 key={project.id}
+                 className={`project-list-item ${activeId === project.id ? 'active' : ''}`}
+                 onMouseEnter={() => setActiveId(project.id)}
+                 initial={{ opacity: 0, x: 20 }}
+                 whileInView={{ opacity: 1, x: 0 }}
+                 viewport={{ once: true }}
+               >
+                  <div className="item-header">
+                    <span className="item-year">{project.year}</span>
+                    <h3 className="item-title">{project.title}</h3>
+                  </div>
+                  <div className="item-meta">
+                    <span className="item-category">{project.category}</span>
+                    <p className="item-desc">{project.description}</p>
+                  </div>
+                  <div className="item-arrow">
+                    <FaExternalLinkAlt />
+                  </div>
+               </motion.a>
+             ))}
+           </div>
+        </div>
+
       </div>
     </section>
   );

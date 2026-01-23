@@ -26,28 +26,29 @@ const Skills = () => {
     <section className="skills-section" id="skills">
       <SectionPartials index="02" title="STACK" align="right" />
       
-      <div className="skills-container-static">
-        <div className="static-header">
+      <div className="skills-container-cards">
+        <div className="skills-header">
            <h2 className="section-title">Technical Arsenal</h2>
         </div>
 
-        <div className="static-grid">
+        <div className="cards-grid">
           {categories.map((category, index) => (
             <motion.div 
               key={index}
-              className="static-column"
+              className="tech-card"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: index * 0.15 }}
               viewport={{ once: true }}
             >
-              <h3 className="column-title">{category.title}</h3>
-              <div className="column-content">
+              <div className="tech-card-header">
+                <span className="tech-id">{category.id}</span>
+                <h3 className="tech-title">{category.title}</h3>
+              </div>
+              
+              <div className="tech-tags">
                 {category.skills.map((skill, idx) => (
-                  <div key={idx} className="skill-item">
-                    <span className="skill-dot"></span>
-                    {skill}
-                  </div>
+                  <span key={idx} className="tech-tag">{skill}</span>
                 ))}
               </div>
             </motion.div>

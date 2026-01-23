@@ -1,17 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 import './CustomCursor.css';
 
 const CustomCursor = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  // Use MotionValues to track position without triggering re-renders
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  // Create smooth springs for the ring (laggy/smooth effect)
+  const springConfig = { damping: 25, stiffness: 120, mass: 0.5 };
+  const ringX = useSpring(mouseX, springConfig);
+  const ringY = useSpring(mouseY, springConfig);
+
+  // Dot tracks instantly (or with very tight spring)
+  const dotX = useSpring(mouseX, { damping: 50, stiffness: 1000 });
+  const dotY = useSpring(mouseY, { damping: 50, stiffness: 1000 });
+
   const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
     const mouseMove = (e) => {
-      setMousePosition({
-        x: e.clientX,
-        y: e.clientY
-      });
+      // Update motion values directly
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
     };
 
     const handleMouseOver = (e) => {
@@ -37,46 +48,23 @@ const CustomCursor = () => {
     };
   }, []);
 
-  const variants = {
-    default: {
-      x: mousePosition.x - 8,
-      y: mousePosition.y - 8,
-      scale: 1,
-    },
-    hover: {
-      x: mousePosition.x - 8,
-      y: mousePosition.y - 8,
-      scale: 2.5,
-      backgroundColor: "rgba(255, 255, 255, 0.1)",
-      border: "1px solid rgba(255, 255, 255, 0.5)",
-    }
-  };
-
-  const dotVariants = {
-    default: {
-      x: mousePosition.x - 4,
-      y: mousePosition.y - 4,
-    },
-    hover: {
-      x: mousePosition.x - 4,
-      y: mousePosition.y - 4,
-      opacity: 0
-    }
-  };
-
   return (
     <>
       <motion.div
         className="cursor-ring"
-        variants={variants}
-        animate={isHovering ? "hover" : "default"}
-        transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
+        style={{ x: ringX, y: ringY, translateX: '-50%', translateY: '-50%' }}
+        animate={{
+          scale: isHovering ? 2.5 : 1,
+          backgroundColor: isHovering ? "rgba(255, 255, 255, 0.1)" : "transparent",
+          borderColor: isHovering ? "rgba(255, 255, 255, 0.5)" : "var(--text-color)"
+        }}
       />
       <motion.div
         className="cursor-dot"
-        variants={dotVariants}
-        animate={isHovering ? "hover" : "default"}
-        transition={{ type: "spring", stiffness: 500, damping: 28 }}
+        style={{ x: dotX, y: dotY, translateX: '-50%', translateY: '-50%' }}
+        animate={{
+          opacity: isHovering ? 0 : 1
+        }}
       />
     </>
   );

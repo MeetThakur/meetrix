@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import CustomCursor from "./components/CustomCursor";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
